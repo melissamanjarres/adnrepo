@@ -6,15 +6,18 @@ import {Breadcrumb} from "../../classes/breadcrumb";
 import {ActivatedRoute} from "@angular/router";
 import {SelectItem} from "primeng/components/common/api";
 import {LocalStorage} from "ng2-webstorage";
+import { Location }  from '@angular/common';
+import {SGApi} from "../../swagger/co/stackpointer/adn/api/SGApi";
 
 @Component({
     selector: 'master',
     templateUrl: './client.view.component.html',
     styleUrls: ['./client.view.component.scss'],
-    providers: [ClientService]
+    providers: [ClientService, SGApi]
 })
 export class ClientViewComponent implements OnInit, OnDestroy {
-    id: number;
+    public id;
+    public nombre;
     sub: any;
     clientService: ClientService;
     appService: AppService;
@@ -46,7 +49,7 @@ export class ClientViewComponent implements OnInit, OnDestroy {
     @LocalStorage()
     public description;
 
-    constructor(clientService: ClientService, private route: ActivatedRoute, appService: AppService) {
+    constructor(private api: SGApi, clientService: ClientService, private route: ActivatedRoute, appService: AppService, private location: Location) {
         this.cities = [];
         this.cities.push({label: 'Select City', value: null});
         this.cities.push({label: 'New York', value: 'NY'});
@@ -58,7 +61,7 @@ export class ClientViewComponent implements OnInit, OnDestroy {
 
         this.appService.breadcrumbs = [];
         this.appService.breadcrumbs.push(new Breadcrumb('Maestro de clientes', 'client'));
-        this.appService.breadcrumbs.push(new Breadcrumb('Detalle de cliente', 'client/1'));
+        this.appService.breadcrumbs.push(new Breadcrumb('Detalle de cliente', 'client/1'))
 
         this.client = new Client;
         this.client.id = 98;
@@ -67,21 +70,25 @@ export class ClientViewComponent implements OnInit, OnDestroy {
         this.client.gender = "Female";
         this.client.language = "Kurdish";
         this.client.title = "Product Management";
-
     }
 
     ngOnInit() {
-        this.clientService.get().then(clients => {
-            this.datasource = clients;
-            this.totalRecords = this.datasource.length;
-            this.clients = this.datasource;
-            this.client = clients[2];
+        this.id = this.route.snapshot.params['id'];
+        this.api.clientesIdGet('1', '1', this.id+'', {'Content-Type': 'application/json'}).subscribe(res => {
+            this.client= new Client();
+            this.client.id = +res.codigo
+            this.client.name = res.nombre;
+            this.id = +res.codigo;
+            this.nombre = this.client.name;
 
             this.sub = this.route.params.subscribe(params => {
                 this.id = +params['id']; // (+) converts string 'id' to a number
                 //this.client = clients[this.id - 1];
             });
+            console.log(res);
         });
+
+        
 
         this.es = {
             firstDayOfWeek: 1,
@@ -91,6 +98,10 @@ export class ClientViewComponent implements OnInit, OnDestroy {
             monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
             monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun","Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ]
         };
+    }
+
+    goBack(): void{
+            this.location.back();
     }
 
     ngOnDestroy() {

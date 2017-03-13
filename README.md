@@ -35,3 +35,5 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 2. Cambiar la URL de seleccion del Pais. 
 3. Solucionar Error 412 en metodos POST PUT DELETE ¿Que precondicion me falta?
 4. Solucionar Error 500 getCountry 
+5. Corregir GoBack del componente
+6. Cliente plus?? What are you doing there
