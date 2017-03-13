@@ -1,0 +1,72 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+  <sidebar></sidebar>
+
+  <div class="content">
+
+    <breadcrumb></breadcrumb>
+
+    <div class="content-container">
+
+      <!--CONTENT HERE-->
+      <h1>MAESTRO DE PAISES</h1>
+      <p-confirmDialog header="Confirmation" icon="fa fa-question-circle"
+                       width="425"></p-confirmDialog>
+      <div class="content-box">
+
+        <div class="datatable-buttons">
+          <button pButton class="md-raised md-primary" 
+                  label="NUEVO PAIS"></button>
+        </div>
+
+        <div class="datatable-header">
+          <div class="table-filter">
+            <input #gb type="text" pInputText size="50" placeholder="Buscar">
+          </div>
+
+          <div class="table-export">
+            <button type="button" (click)="dt.exportCSV()"
+                    class="ui-button ui-button-secondary ui-button-small">
+              <i class="fa fa-print"></i> Imprimir
+            </button>
+            <button type="button" (click)="dt.exportCSV()"
+                    class="ui-button ui-button-secondary ui-button-small">
+              <i class="fa fa-file-text-o"></i> Exportar CSV
+            </button>
+          </div>
+        </div>
+
+        <p-dataTable [value]="items" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [paginator]="true"
+                     exportFilename="clients"
+                     [responsive]="true"
+                     selectionMode="single"
+                     (onRowSelect)="onRowSelect($event)"
+                     [totalRecords]="totalRecords" sortMode="multiple"
+                     [globalFilter]="gb" [pageLinks]="10"
+                     expandableRows="false" #dt>
+          <p-column styleClass="datatable-td-counter">
+            <template let-i="rowIndex" pTemplate="body">
+              {{ i + 1 }}
+            </template>
+          </p-column>
+          <p-column field="id" header="ID" styleClass="small-left" [sortable]="true"></p-column>
+          <p-column field="nombre" header="Nombre" [sortable]="true"></p-column>
+          <p-column header="Acciones" styleClass="small-right">
+            <template let-item="rowData" pTemplate="body">
+              <div>
+                <a (click)="delete(item)"><i class="fa fa-trash"></i></a>
+              </div>
+            </template>
+          </p-column>
+        </p-dataTable>
+      </div>
+
+
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+
+
+</div>

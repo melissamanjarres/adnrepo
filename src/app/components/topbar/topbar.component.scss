@@ -1,0 +1,127 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+.app-topbar {
+    @include display(flex);
+    background-color: $color-secondary;
+    height: 60px;
+
+    .search-icon {
+        @include display(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        background-color: $color-main;
+        width: 65px;
+        min-width: 65px;
+
+        a {
+            display: block;
+            text-align: center;
+
+            img {
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+
+    .topbar {
+        @include display(flex);
+        @include justify-content(space-between);
+        @include align-items(center);
+        @include flex(1);
+
+        padding: $space-normal $space-large;
+
+        .search {
+            .search-box {
+                @include border-top-radius(25px);
+                @include border-bottom-radius(25px);
+                background-color: white;
+                background-image: url('assets/images/search-icon.png');
+                background-repeat: no-repeat;
+                background-position: 215px center;
+                padding: $space-small $space-normal;
+                width: 250px;
+
+                input {
+                    font-size: 0.9em;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+
+        .user {
+            @include display(flex);
+            @include align-items(center);
+
+            .user-info {
+                text-align: right;
+                margin-right: $space-normal;
+                color: white;
+
+                .user-name {
+                    font-size: 1em;
+                    font-weight: 400;
+
+                    span {
+                        font-weight: 500;
+                    }
+                }
+
+                .user-logout {
+                    a {
+                        font-size: 0.9em;
+                        color: white !important;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .user-avatar {
+                width: 40px;
+
+                img {
+                    @include border-top-radius(50%);
+                    @include border-bottom-radius(50%);
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.search-results {
+    position: absolute;
+    background-color: $color-secondary;
+    padding: $space-normal $space-big $space-big $space-big;
+    z-index: 9999;
+    top: 60px;
+    left: 65px;
+
+    h3 {
+
+    }
+
+    ul {
+        li {
+            margin-bottom: $space-tiny;
+            margin-bottom: 0.25em;
+            line-height: 2.2em;
+
+            a {
+                font-size: 1.1em;
+                color: white !important;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

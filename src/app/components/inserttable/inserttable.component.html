@@ -1,0 +1,22 @@
+<p-dataTable [value]="items" [rows]="10" [rowsPerPageOptions]="[5,10,20]"
+             styleClass="column-divider" [paginator]="false"
+             exportFilename="items"
+             [responsive]="true"
+             [totalRecords]="items.length" sortMode="multiple"
+            [pageLinks]="10"
+             expandableRows="false" #dt>
+
+    <p-column *ngFor="let col of cols" [header]="col" [footer]="col">
+        <template pTemplate="footer">
+            <input type="text" pInputText style="width: 100%;"/>
+        </template>
+    </p-column>
+
+    <p-column header="" footer="" styleClass="small-right">
+        <template pTemplate="footer">
+            <div style="text-align: center">
+                <i class="fa fa-check"></i>
+            </div>
+        </template>
+    </p-column>
+</p-dataTable>

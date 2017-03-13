@@ -1,0 +1,89 @@
+<notification></notification>
+
+<div class="welcome">
+  <div class="login-column">
+
+      <div class="arrow-back" *ngIf="recoverPasswordView" (click)="showLoginView()">
+          <i class="fa fa-chevron-left"></i>&nbsp;&nbsp;
+          <p>Volver al inicio</p>
+      </div>
+
+      <!--Login box-->
+      <div class="login-box" *ngIf="!recoverPasswordView && loginView">
+
+          <div class="company-logo-box">
+              <img src="assets/images/cocacola-logo.png" alt="Company Logo" *ngIf="!changingCompany">
+          </div>
+
+          <div class="adn_field">
+              <span class="md-inputfield">
+                    <input [(ngModel)]="companyName" type="text" pInputText style="width: 100%;" class="company small-bottom-margin" />
+                    <label>Empresa</label>
+                </span>
+
+              <div class="change-company">
+                  <a href="#" (click)="changeCompany($event)">Cambiar empresa</a>
+              </div>
+          </div>
+
+          <div class="adn_field">
+              <span class="md-inputfield">
+                    <input [(ngModel)]="email" type="text" pInputText style="width: 100%;min-width: 280px; margin-bottom: 2em;"
+                           class="company small-bottom-margin"/>
+                    <label>Email =</label>
+                </span>
+          </div>
+
+          <div class="adn_field">
+              <span class="md-inputfield">
+                    <input type="password" pInputText
+                           style="width: 100%;min-width: 280px; margin-bottom: 2em;"
+                           class="password small-bottom-margin"/>
+                    <label>Password</label>
+                </span>
+              <div class="forgot-password">
+                  <a href="#" (click)="showRecoverPasswordView()">Olvidé mi contraseña</a>
+              </div>
+          </div>
+
+          <div class="button-actions">
+              <a class="ui button bold" routerLink="/home">INICIAR SESION</a>
+          </div>
+
+      </div>
+
+
+      <!--Recover password box-->
+      <div class="recover-password-box" *ngIf="recoverPasswordView" style="width: 280px;">
+
+          <h5>Recuperar contraseña</h5>
+          <p>Ingrese su correo electrónico para enviarle el proceso de recuperación.</p>
+
+          <div class="spacer large"></div>
+
+          <span class="md-inputfield">
+                    <input [(ngModel)]="email" type="password" pInputText
+                           style="width: 100%;min-width: 280px; margin-bottom: 2em;"
+                           class="small-bottom-margin"/>
+                    <label>Email</label>
+                </span>
+
+          <div class="button-actions">
+              <button class="ui button bold" (click)="sendEmail()">ENVIAR CORREO</button>
+          </div>
+
+      </div>
+
+
+      <div class="logo-login">
+          <div><img src="assets/images/logo-loading.png"></div>
+          <div>Todos los derechos reservados - 2016</div>
+      </div>
+
+  </div>
+
+  <div class="motivational-column motivational-bg{{ quote['index'] }}">
+      <div class="motivational-text-box">{{ quote['quote'] }}.</div>
+      <div class="motivational-author">- {{ quote['author'] }} -</div>
+  </div>
+</div>

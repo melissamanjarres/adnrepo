@@ -1,0 +1,219 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+    <sidebar></sidebar>
+
+    <div class="content">
+
+        <breadcrumb></breadcrumb>
+
+        <div class="content-container">
+
+            <!--CONTENT HERE-->
+            <h1>FACTURACIÓN DE CONTADO</h1>
+            <div class="content-box">
+
+            	<h2>Seleccionar año</h2>
+            	<div class="row">
+            		<div class="col-xs-3">
+                       <p-dropdown [options]="years" [(ngModel)]="selectedYear" name="selectedYear"></p-dropdown>
+					</div>
+
+					<div class="col-xs-3">
+						<p-dropdown [options]="cars" [(ngModel)]="selectedCar">
+						    <template let-car pTemplate="item">
+				            	<div style="font-size:18px; ">{{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}} {{car.label}}</div>
+						    </template>
+						</p-dropdown>
+					</div>
+            	</div>
+
+            	<h2>Facturación</h2>
+				<div class="row">
+					<div class="col-xs-3">
+                        <span class="md-inputfield withicon">
+                            <div class="dropdown-icon">
+
+                                <a href="#"><i class="fa fa-plus-square"></i></a>
+                                <p-autoComplete [(ngModel)]="documentType"
+                                                [suggestions]="documentTypesFiltered"
+                                                (completeMethod)="filterDocumentTypes($event)"
+                                                field="name" name="client"
+                                                [size]="30"
+                                                [minLength]="1"></p-autoComplete>
+                                <label>Tipo de documento</label>
+
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Número</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Fecha</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Asesor comercial</label>
+                        </span>
+                    </div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Cliente</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Moneda</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Entrega mcia.</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Descuento</label>
+                        </span>
+                    </div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Centro de costo</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Bodega</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Lista de precios</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Transportador</label>
+                        </span>
+                    </div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Doc. alterno</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <p-checkbox name="group1" [(ngModel)]="check1" value="codigo de barras" label="Código de barras"></p-checkbox>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <p-checkbox name="group2" [(ngModel)]="check2" value="numero de lote" label="Número de lote"></p-checkbox>
+                    </div>
+
+                    <div class="col-xs-3">
+                    </div>
+				</div>
+
+				<div class="spacer"></div>
+				<div class="spacer"></div>
+				<div class="spacer"></div>
+
+				<p-tabView>
+				    <p-tabPanel header="Movimiento">
+				        <table class="data-detail-table" cellpadding="0" cellspacing="0" border="0">
+				        	<thead>
+				        		<tr>
+				        			<th>&nbsp;</th>
+				        			<th>Referencia</th>
+				        			<th>Descripción</th>
+				        			<th>Unidad</th>
+				        			<th>Cant.</th>
+				        			<th>Valor unitario</th>
+				        			<th>Dto%</th>
+				        			<th>Subtotal</th>
+				        			<th>Exist.</th>
+				        			<th>Bodega</th>
+				        			<th>Num lote</th>
+				        			<th>dbi</th>
+				        			<th>Factor</th>
+				        		</tr>
+				        	</thead>
+				        	<tbody>
+				        		<tr>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        			<td>&nbsp;</td>
+				        		</tr>
+				        	</tbody>
+				        </table>
+				    </p-tabPanel>
+				    <p-tabPanel header="Contabilidad">
+				        Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film,
+				        The_Godfather parallels
+				        the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's
+				        depiction of
+				        the dark side of the American dream. In the early 1900s, the child Vito flees his Sicilian
+				        village for
+				        America after the local Mafia kills his family. Vito struggles to make a living, legally or
+				        illegally, for
+				        his wife and growing brood in Little Italy, killing the local Black Hand Fanucci after he
+				        demands his
+				        customary cut of the tyro's business. With Fanucci gone, Vito's communal stature grows.
+				    </p-tabPanel>
+				</p-tabView>
+                
+            </div>
+
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+
+
+</div>

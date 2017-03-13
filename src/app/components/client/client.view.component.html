@@ -1,0 +1,388 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+    <sidebar></sidebar>
+
+    <div class="content">
+        <div class="sticky-container">
+            <div class="sticky">
+                <div class="sticky-logo">
+                    <a href="">
+                        <img src="assets/images/logo_menu_white.png" alt="ADN">
+                    </a>
+                </div>
+                <div class="sticky-content">
+                    <breadcrumb></breadcrumb>
+
+                    <div class="paginator-bar sticky-paginator-bar">
+                        <div class="paginator-bar-back">
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                            &nbsp;
+                            <a href="#">&nbsp;&nbsp;Volver a [componente anterior]</a>
+                        </div>
+                        <div class="paginator-bar-arrows">
+                            <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <breadcrumb></breadcrumb>
+
+        <div class="paginator-bar">
+            <div class="paginator-bar-back">
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                &nbsp;
+                <a href="#">&nbsp;&nbsp;Volver a [componente anterior]</a>
+            </div>
+            <div class="paginator-bar-arrows">
+                <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+            </div>
+        </div>
+
+        <div class="content-container">
+
+            <h1>DETALLE DE CLIENTE</h1>
+
+
+            <!--CONTENT HERE-->
+            <div class="content-box">
+                <h2>{{ client.name }}</h2>
+                <form name="addClientForm">
+
+                    <div class="basic-row">
+
+                        <div class="avatar" style="background-size: cover; background-image: url('assets/images/profile_default.png'); background-repeat: no-repeat; background-position: center center;">
+                            <a class="avatar-overlay">
+                                <div><i class="fa fa-search"></i> CAMBIAR</div>
+                            </a>
+                        </div>
+
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <span class="md-inputfield">
+                                        <input type="text" pInputText style="width: 100%;"/>
+                                        <label>Código</label>
+                                    </span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span class="md-inputfield">
+                                        <input type="text" name="nombre" [(ngModel)]="client.name" pInputText style="width: 100%;"/>
+                                        <label>Nombre</label>
+                                    </span>
+                                </div>
+                                <div class="col-xs-3">
+                                </div>
+                            </div>
+
+                            <div class="spacer"></div>
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <span class="md-inputfield withicon">
+                                        <div class="dropdown-icon">
+
+                                            <a href="#"><i class="fa fa-plus-square"></i></a>
+                                            <p-autoComplete [(ngModel)]="option"
+                                                            [suggestions]="filteredOptions"
+                                                            (completeMethod)="filterOptions($event)"
+                                                            field="name" name="client"
+                                                            [size]="30"
+                                                            [minLength]="1"></p-autoComplete>
+                                            <label>Cliente</label>
+
+                                        </div>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <span class="md-inputfield">
+                                        <p-calendar [(ngModel)]="date6" [locale]="es" [showTime]="true" name="date"
+                                                    dateFormat="dd-mm-yy" hourFormat="24" showSeconds="true" placeholder="Fecha"></p-calendar>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <p-checkbox name="group1" value="1" label="Cliente Activo" [(ngModel)]="activeClient"></p-checkbox>
+                                </div>
+
+                                <div class="col-xs-3"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+
+                <p-tabView>
+                    <p-tabPanel header="General">
+                        <div class="spacer"></div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Nombre de negocio</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="account_manager"
+                                        field="reference"
+                                        field2="description"
+                                        label="Representante de cuenta"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Dirección</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Teléfonos</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Email</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="channel"
+                                        field="reference"
+                                        field2="description"
+                                        label="Canal"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="price"
+                                        field="reference"
+                                        field2="description"
+                                        label="Precio"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="dispocartera"
+                                        field="reference"
+                                        field2="description"
+                                        label="Dispo-cartera"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="state"
+                                        field="reference"
+                                        field2="description"
+                                        label="Municipio"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="geo_zone"
+                                        field="reference"
+                                        field2="description"
+                                        label="Zona geográfica"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+
+                            <div class="col-xs-3">
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Crédito">
+                        <div class="spacer"></div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <select-input-dbl
+                                        id="regimen"
+                                        field="reference"
+                                        field2="description"
+                                        label="Régimen"
+                                        selectionRoute="selection3"
+                                        showActionsColumn="0">
+                                </select-input-dbl>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <p-calendar [(ngModel)]="date6" [locale]="es" [showTime]="true" name="date"
+                                            dateFormat="dd-mm-yy" hourFormat="24" showSeconds="true"
+                                            placeholder="Fecha"></p-calendar>
+                                    <div class="ui-message-help">
+                                        dd-mm-yyyy
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Plazo de pago</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Máximo saldo de cartero</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Impuesto adicional</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Cantidad cheques devueltos</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Variación del cupo</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Promedio en días de mora</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Descuento financiero</label>
+                                </span>
+                            </div>
+                            <div class="col-xs-3">
+                                <p-checkbox name="group1" value="1"
+                                            label="Agente retenedor"
+                                            [(ngModel)]="activeCheckbox1"></p-checkbox>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <p-checkbox name="group2" value="1"
+                                            label="Retenedor de ICA"
+                                            [(ngModel)]="activeCheckbox2"></p-checkbox>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+
+                    <p-tabPanel header="Estadísticas">
+                        <div class="spacer"></div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Evaluar desde</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Acumulado ventas</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Rentabilidad</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Porcentaje devoluciones</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Participación sobre ventas</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Cantidad de facturas</label>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="md-inputfield">
+                                    <input type="text" pInputText style="width: 100%;"/>
+                                    <label>Saldo actual cartera</label>
+                                </span>
+                            </div>
+                        </div>
+
+                        <insert-table [cols]="['Artículos comprados', '%']">
+                        </insert-table>
+
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+
+
+</div>

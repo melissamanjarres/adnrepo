@@ -1,0 +1,35 @@
+<h1>Data Table</h1>
+<table class="data">
+    <thead>
+    <tr>
+        <th>&nbsp;</th>
+        <th>
+            <a href="#">
+                CODIGO
+            </a>
+        </th>
+        <th>
+            <a href="#">
+                NOMBRE
+            </a>
+        </th>
+        <th>
+            <a href="#">
+                CORREO ELECTRONICO
+            </a>
+        </th>
+        <th>OPCIONES</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-row" *ngFor="let item of data">
+        <td>&nbsp;</td>
+        <td>{{ item.code }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+            <a href="#"><i class="fa fa-trash-o"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>

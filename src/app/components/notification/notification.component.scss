@@ -1,0 +1,52 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+.adn-message {
+  z-index: 9999999;
+  position: fixed;
+  top: -100px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 0.75em;
+  background-color: $color-success;
+
+  .adn-message-title {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
+
+    i {
+      display: block;
+      margin-right: $space-tiny;
+      font-size: 1.5em;
+    }
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}
+
+.adn-message.success {
+  background-color: $color-success;
+}
+
+.adn-message.info {
+  background-color: $color-info;
+}
+
+.adn-message.error {
+  background-color: $color-error;
+}
+
+.adn-message.warning {
+  background-color: $color-warning;
+  color: $color-warning-text;
+}

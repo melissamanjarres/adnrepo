@@ -1,0 +1,67 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+.mega-menu {
+    position: absolute;
+    top: 0;
+    left: 65px;
+    color: white;
+    padding: 2em 1.5em;
+    background-color: $color-menu;
+    min-width: 550px;
+    width: 800px;
+    text-align: left;
+    z-index: 99;
+
+    .md-display-1 {
+        padding: 0 !important;
+        margin: 0;
+        text-transform: uppercase;
+        color: $color-secondary;
+        font-size: 2.5em;
+        font-family: 'Poiret One', 'Roboto', sans-serif;
+        margin-bottom: 0.8em;
+    }
+
+    .mega-menu-container {
+        @include display(flex);
+
+        .column {
+            @include flex(1);
+            margin-right: $space-large;
+
+            .action-block {
+                margin-bottom: $space-large;
+            }
+
+            .action-block:last-child {
+                margin-bottom: 0;
+            }
+
+            .action-title {
+                border-bottom: 1px dotted $color-main;
+                font-size: 1em;
+                margin-bottom: $space-normal;
+                color: $color-main;
+            }
+
+            .action-list {
+                li {
+                    a {
+                        display: block;
+                        text-decoration: none;
+                        padding: $space-tiny 0;
+                        color: $color-secondary;
+                        font-size: 0.95em;
+                    }
+                }
+            }
+        }
+
+        .column:last-child {
+            margin-right: 0;
+        }
+    }
+}

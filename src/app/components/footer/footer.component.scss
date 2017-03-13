@@ -1,0 +1,31 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+footer {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
+    font-size: 0.8em;
+    padding: 0 3em 1.5em 3em !important;
+    background-color: darken($color-bg, 1%);
+
+    .rights {
+        @include display(flex);
+        @include justify-content(flex-start);
+        @include align-items(center);
+
+        img {
+            display: inline-block;
+            margin-right: $space-normal;
+        }
+    }
+
+    .footer-text {
+        a {
+            color: #555 !important;
+            text-decoration: underline;
+        }
+    }
+}

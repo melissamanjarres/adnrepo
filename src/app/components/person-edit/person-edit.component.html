@@ -1,0 +1,214 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+    <sidebar></sidebar>
+
+    <div class="content">
+        <div class="sticky-container">
+            <div class="sticky">
+                <div class="sticky-logo">
+                    <a href="">
+                        <img src="assets/images/logo_menu_white.png" alt="ADN">
+                    </a>
+                </div>
+                <div class="sticky-content">
+                    <breadcrumb></breadcrumb>
+
+                    <div class="paginator-bar sticky-paginator-bar">
+                        <div class="paginator-bar-back">
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                            &nbsp;
+                            <a href="#">&nbsp;&nbsp;Volver a [componente anterior]</a>
+                        </div>
+                        <div class="paginator-bar-arrows">
+                            <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                            <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <breadcrumb></breadcrumb>
+
+        <div class="paginator-bar">
+            <div class="paginator-bar-back">
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                &nbsp;
+                <a href="#">&nbsp;&nbsp;Volver a [componente anterior]</a>
+            </div>
+            <div class="paginator-bar-arrows">
+                <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+                <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+            </div>
+        </div>
+
+        <div class="content-container">
+
+            <h1>DETALLE DE PERSONA</h1>
+
+            <!--CONTENT HERE-->
+            <div class="content-box">
+                <h2>Edith Abello</h2>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p-dropdown [options]="[{label: 'Tipo documento', value: null}, {label: 'Cédula de Ciudadanía', value: 'cedula'}, {label: 'NIT', value: 'nit'}]"  name="tipo_documento"></p-dropdown>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Número</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Primer Apellido</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Segundo Apellido</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Primer Nombre</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Segundo Nombre</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <p-dropdown [options]="[{label: 'Sexo', value: null}, {label: 'Masculino', value: 'm'}, {label: 'Femenino', value: 'f'}]" name="sexo"></p-dropdown>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <p-calendar [locale]="appService.es" [showTime]="true"
+                                    dateFormat="dd-mm-yy" hourFormat="24" showSeconds="true"
+                                    placeholder="Fecha Nacimiento"></p-calendar>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p-dropdown [options]="[{label: 'Estado civil', value: null}, {label: 'Soltero', value: 'soltero'}, {label: 'Casado', value: 'casado'}]" name="estado_civil"></p-dropdown>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Dirección Residencia</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Calle</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Carrera</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Teléfonos</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <p-dropdown [options]="[{label: 'Zona', value: null}, {label: 'Urbana', value: 'urbana'}, {label: 'Rural', value:'rural'}]" name="zone"></p-dropdown>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Barrio, vereda, etc</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Dirección Correo</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Email</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Lugar Nacimiento</label>
+                        </span>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <select-input-dbl
+                                id="municipio"
+                                field="reference"
+                                field2="description"
+                                label="Ciudad o Municipio de Residencia"
+                                selectionRoute="selection3"
+                                showActionsColumn="0">
+                        </select-input-dbl>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Observaciones</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="md-inputfield">
+                            <input type="text" pInputText style="width: 100%;"/>
+                            <label>Clase de Persona en ADN</label>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+.basic-row {
+    @include display(flex);
+    margin-bottom: 30px;
+
+    > div.avatar {
+        margin-right: $space-large;
+
+        img {
+            width: 135px !important;
+            height: auto;
+        }
+    }
+
+    > div.form {
+        @include flex(1);
+    }
+
+    > div {
+    }
+
+
+}

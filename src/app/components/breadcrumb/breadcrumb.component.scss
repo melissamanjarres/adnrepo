@@ -1,0 +1,59 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+.breadcrumbs-bar {
+    background-color: $color-breadcrumb;
+
+    ul {
+        @include display(flex);
+        @include flex-direction(row);
+        @include align-items(center);
+
+        li {
+            background-image: url('assets/images/breadcrumb_divider-2.png');
+            background-position: center right;
+            background-repeat: no-repeat;
+            padding-right: 1.5em;
+            margin-right: $space-small;
+            height: 50px;
+            line-height: 50px;
+            list-style: none;
+
+            a {
+                display: block;
+                color: $color-secondary;
+                text-decoration: none;
+                font-size: 1em;
+            }
+        }
+
+        li:first-child {
+            margin-left: $space-large;
+        }
+
+        li:last-child {
+            background-image: none;
+
+            a {
+                color: $color-main;
+                font-size: 0.9em;
+                cursor: default;
+            }
+        }
+
+        li.home {
+            a {
+                color: $color-secondary;
+                font-size: 1.2em;
+                line-height: 50px;
+
+                i {
+                    display: block;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+}

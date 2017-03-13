@@ -1,0 +1,33 @@
+<div class="app-topbar">
+    <div class="search-icon">
+        <a (click)="appService.goto($event, 'Inicio', 'home')">
+            <img src="assets/images/logo_menu_white.png" alt="ADN">
+        </a>
+    </div>
+    <div class="topbar">
+        <div class="search">
+            <div class="search-box">
+                <input type="text" #search name="searchStr" placeholder="Buscar opciones" [(ngModel)]="appService.searchStr">
+            </div>
+        </div>
+
+        <div class="search-results" (clickOutside)="appService.searchStr = ''" *ngIf="appService.searchStr != ''">
+            <h3 style="margin-top: 0.6em;">Resultados de busqueda</h3>
+            <ul>
+                <li *ngFor="let item of appService.searchItems | searchPipe:search.value">
+                    <a (click)="appService.goto($event, item.title, item.link)">{{ item.title }}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="user">
+            <div class="user-info">
+                <div class="user-name">Elias Orozco - <span>Abacol</span></div>
+                <div class="user-logout"><a routerLink="/login">Cerrar sesion</a></div>
+            </div>
+            <div class="user-avatar">
+                <img src="assets/images/avatar-sample.jpg" alt="Natalia Arbelaez">
+            </div>
+        </div>
+    </div>
+</div>

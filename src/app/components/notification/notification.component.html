@@ -1,0 +1,9 @@
+<div class="adn-message" [ngClass]="type" [@slideInOut]="state">
+    <div class="adn-message-title">
+        <i *ngIf="type == 'success'" class="fa fa-thumbs-o-up"></i>
+        <i *ngIf="type == 'info'" class="fa fa-bullhorn"></i>
+        <i *ngIf="type == 'error'" class="fa fa-thumbs-o-down"></i>
+        <i *ngIf="type == 'warning'" class="fa fa-warning"></i>
+        <div>{{ title }}</div>
+    </div>
+</div>

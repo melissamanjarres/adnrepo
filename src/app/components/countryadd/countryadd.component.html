@@ -1,0 +1,82 @@
+<div class="app-content">
+  <sidebar></sidebar>
+
+  <div class="content">
+    <div class="sticky-container">
+      <div class="sticky">
+        <div class="sticky-logo">
+          <a href="">
+            <img src="assets/images/logo_menu_white.png" alt="ADN">
+          </a>
+        </div>
+        <div class="sticky-content">
+          <breadcrumb></breadcrumb>
+
+          <div class="paginator-bar sticky-paginator-bar">
+            <div class="paginator-bar-back">
+              <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+              &nbsp;
+              <a href="#" (click)="goBack($event)">&nbsp;&nbsp;Volver a [componente anterior]</a>
+            </div>
+            <div class="paginator-bar-arrows">
+              <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+              <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+              <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <breadcrumb></breadcrumb>
+
+    <div class="paginator-bar">
+      <div class="paginator-bar-back">
+        <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+        &nbsp;
+        <a href="#">&nbsp;&nbsp;Volver a [componente anterior]</a>
+      </div>
+      <div class="paginator-bar-arrows">
+        <span class="bold">1</span><span>de</span> <span class="bold">100</span>&nbsp;&nbsp;
+        <button pButton class="md-primary ui-button-small" icon="fa-arrow-left"></button>
+        <button pButton class="md-primary ui-button-small" icon="fa-arrow-right"></button>
+      </div>
+    </div>
+
+    <div class="content-container">
+
+      <h1>MAESTRO DE DEPARTAMENTOS</h1>
+
+
+      <!--CONTENT HERE-->
+      <div class="content-box">
+        <h2>CREAR NUEVO DEPARTAMENTO</h2>
+        <form name="addClientForm">
+
+          <div class="row">
+            <div class="col-xs-3">
+                    <span class="md-inputfield">
+                        <input type="text" name="nombre" [(ngModel)]="nombre" pInputText style="width: 100%;"/>
+                        <label>Nombre</label>
+                    </span>
+            </div>
+          </div>
+
+          <div class="datatable-header">
+            <div class="table-export">
+              <button pButton class="md-primary ui-button-small" (click)=save($event) label="Crear"></button>
+              <button pButton class="md-warn ui-button-small" (click)="goBack($event)" label="Cancelar"></button>
+            
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+
+
+</div>

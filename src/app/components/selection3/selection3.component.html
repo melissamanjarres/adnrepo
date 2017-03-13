@@ -1,0 +1,42 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+  <sidebar></sidebar>
+
+  <div class="content">
+
+    <breadcrumb></breadcrumb>
+
+    <div class="content-container">
+
+      <!--CONTENT HERE-->
+      <h1>SELECCIONE UN PAIS</h1>
+      <div class="content-box">
+        <p-dataTable [value]="items2" [rows]="10" [rowsPerPageOptions]="[5,10,20]"
+                     styleClass="column-divider" [paginator]="true"
+                     exportFilename="cars"
+                     [responsive]="true"
+                     selectionMode="single"
+                     (onRowSelect)="onRowSelect($event)"
+                     [totalRecords]="totalRecords" sortMode="multiple"
+                     [globalFilter]="gb" [pageLinks]="10"
+                     expandableRows="false" #dt>
+          <p-column styleClass="datatable-td-counter">
+            <template let-i="rowIndex" pTemplate="body">
+              {{ i + 1 }}
+            </template>
+          </p-column>
+          <p-column field="id" header="Código del Pais" styleClass="small-left"
+                    [sortable]="true"></p-column>
+          <p-column field="nombre" header="Nombre" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+        
+
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+$primaryColor: #407EC9;
+$primaryDarkColor: darken($primaryColor, 27%);
+$primaryLightColor: lighten($primaryColor, 25%);
+$accentColor: $primaryColor;
+$accentDarkColor: $primaryDarkColor;
+$accentLightColor: $primaryLightColor;
+$accentTextColor: #ffffff;
+@import 'theme';

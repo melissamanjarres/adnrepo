@@ -1,0 +1,19 @@
+<!--Mega menu-->
+<div class="mega-menu" (clickOutside)="appService.menuMouseLeave()" [exclude]="'.sidebar-item'">
+  <div class="md-display-1">{{ title }}</div>
+  <div class="mega-menu-container">
+
+    <div class="column col1" *ngFor="let cols of menuOptions">
+
+      <div class="action-block" *ngFor="let item of cols">
+        <div class="action-title">{{ item.title }}</div>
+        <ul class="action-list">
+          <li *ngFor="let option of item.options">
+            <a (click)="goto($event, option.title, option.link)">{{ option.title }}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

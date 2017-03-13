@@ -1,0 +1,571 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+    <sidebar></sidebar>
+
+    <div class="content">
+
+        <breadcrumb></breadcrumb>
+
+        <div class="content-container" #container>
+
+            <p-dialog responsive="true" header="Seleccione un elemento" modal="true" [(visible)]="appService.display">
+                <p-dataTable [value]="clients" [rows]="10" [rowsPerPageOptions]="[5,10,20]"
+                             styleClass="column-divider" [paginator]="true"
+                             exportFilename="cars"
+                             [responsive]="true"
+                             selectionMode="single"
+                             (onRowSelect)="appService.return($event, appService.lastTargetId)"
+                             [totalRecords]="totalRecords" sortMode="multiple"
+                             [globalFilter]="gb" [pageLinks]="10"
+                             expandableRows="false" #dt>
+                    <p-column styleClass="datatable-td-counter">
+                        <template let-i="rowIndex" pTemplate="body">
+                            {{ i + 1 }}
+                        </template>
+                    </p-column>
+                    <p-column field="id" header="Reporte" styleClass="small-left" [sortable]="true"></p-column>
+                    <p-column field="name" header="Gráficos" [sortable]="true"></p-column>
+                    <p-column field="gender" header="Género"></p-column>
+                </p-dataTable>
+            </p-dialog>
+
+            <form action="?">
+
+                <h1>Demo Layouts</h1>
+                <div class="content-box demo-form">
+                    <h2>Layouts</h2>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-9">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;"/>
+                                <label>Campo de texto</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <h2>Formularios</h2>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" [(ngModel)]="code1" name="code1"
+                                       pInputText style="width: 100%;"
+                                       (click)="appService.handleClickedInput($event, ['id'], 'selection', 0)" />
+                                <label>ID con selección</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" [(ngModel)]="code2" name="code2"
+                                       pInputText style="width: 100%;"
+                                       (click)="appService.handleClickedInput($event, ['name'], 'selection', 1)"/>
+                                <label>Nombre con selección</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" [(ngModel)]="code" name="code" class="ng-invalid" pInputText style="width: 100%;" />
+                                <label>Código</label>
+                                <div class="ui-message ui-messages-error ui-corner-all">
+                                    Este campo es requerido
+                                </div>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText disabled="true" style="width: 100%;" />
+                                <label>Input deshabilitado</label>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield withicon">
+                                <div class="dropdown-icon">
+                                    <a href="#"><i class="fa fa-plus-square"></i></a>
+                                    <p-autoComplete [(ngModel)]="country2"
+                                                    [suggestions]="filteredCountriesSingle2"
+                                                    (completeMethod)="filterCountrySingle($event)"
+                                                    field="name" name="country"
+                                                    [size]="30"
+                                                    [minLength]="1"></p-autoComplete>
+                                    <label>País (Autocomplete)</label>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <p-calendar [(ngModel)]="date6" [locale]="es" [showTime]="true" name="date"
+                                            dateFormat="dd-mm-yy" hourFormat="24" showSeconds="true" placeholder="Fecha"></p-calendar>
+                                <div class="ui-message-help">
+                                    dd-mm-yyyy
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity" name="city"></p-dropdown>
+                            <div class="ui-message-help">
+                                    *Este campo es requerido
+                                </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield withicon">
+                                <div class="dropdown-icon">
+
+                                    <a href="#"><i class="fa fa-plus-square"></i></a>
+                                    <p-autoComplete [(ngModel)]="country"
+                                                    [suggestions]="filteredCountriesSingle"
+                                                    (completeMethod)="filterCountrySingle($event)"
+                                                    field="name" name="country"
+                                                    [size]="30"
+                                                    [minLength]="1"></p-autoComplete>
+                                    <label>País (Autocomplete)</label>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <p-inputSwitch onLabel="Si" offLabel="No" [(ngModel)]="checked1"
+                                           name="switch"></p-inputSwitch>
+                                <span>Retenedor de IVA</span>
+                            </span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <p-inputMask [(ngModel)]="masked" name="masked" mask="999 999 9999"></p-inputMask>
+                                <label>Celular</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <h2>Selección única</h2>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p-radioButton name="group2" value="Option 1" label="Opción 1"
+                                           [(ngModel)]="val1"></p-radioButton>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-radioButton name="group2" value="Option 1" label="Opción 2"
+                                           [(ngModel)]="val1"></p-radioButton>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-radioButton name="group2" value="Option 1" label="Opción 3"
+                                           [(ngModel)]="val1"></p-radioButton>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-radioButton name="group2" value="Option 1" label="Opción 3"
+                                           [(ngModel)]="val1"></p-radioButton>
+                        </div>
+                    </div>
+
+                    <h2>Selección multiple</h2>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <p-checkbox name="group1" value="Los Angeles" label="Los Angeles"
+                                        [(ngModel)]="selectedCities"></p-checkbox>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-checkbox name="group1" value="San Francisco" label="San Francisco"
+                                        [(ngModel)]="selectedCities"></p-checkbox>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-checkbox name="group1" value="Los Angeles" label="Los Angeles"
+                                        [(ngModel)]="selectedCities"></p-checkbox>
+                        </div>
+                        <div class="col-xs-3">
+                            <p-checkbox name="group1" value="Bogotá" label="Bogotá"
+                                        [(ngModel)]="selectedCities"></p-checkbox>
+                        </div>
+                    </div>
+
+                    <h2>Tabla de datos</h2>
+                    <p-dataTable [value]="clients" [rows]="10" [rowsPerPageOptions]="[5,10,20]" styleClass="column-divider" [paginator]="true"
+                                 exportFilename="cars"
+                                 [responsive]="true"
+                                 [totalRecords]="totalRecords" sortMode="multiple"
+                                 [globalFilter]="gb" [pageLinks]="10"
+                                 expandableRows="false" #dt>
+                        <p-column styleClass="datatable-td-counter">
+                            <template let-i="rowIndex" pTemplate="body">
+                                {{ i + 1 }}
+                            </template>
+                        </p-column>
+                        <p-column expander="true" styleClass="col-icon"></p-column>
+                        <p-column field="id" header="ID" styleClass="small-left" [sortable]="true"></p-column>
+                        <p-column field="name" header="Nombre" [sortable]="true"></p-column>
+                        <p-column field="email" header="Email" [sortable]="true"></p-column>
+                        <p-column field="gender" header="Género"></p-column>
+                        <p-column header="Tipo 1" styleClass="small-left">
+                            <template let-i="rowIndex" pTemplate="body">
+                                <div>
+                                    <p-radioButton name="group5-{{i}}" label="Opción 1"></p-radioButton>
+                                </div>
+                            </template>
+                        </p-column>
+                        <p-column header="Tipo 2" styleClass="small-left">
+                            <template let-i="rowIndex" pTemplate="body">
+                                <div>
+                                    <p-radioButton name="group5-{{i}}" label="Opción 1"></p-radioButton>
+                                </div>
+                            </template>
+                        </p-column>
+                        <p-column header="Activo" styleClass="small-left">
+                            <template pTemplate="body">
+                                <div>
+                                    <p-checkbox name="activeCheckbox" [(ngModel)]="activeCheckbox" value="1"></p-checkbox>
+                                </div>
+                            </template>
+                        </p-column>
+                        <p-column header="Acciones" styleClass="small-right">
+                            <template let-client="rowData" pTemplate="body">
+                                <div style="text-align: center">
+                                    <a href="#"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </template>
+                        </p-column>
+                        <template let-client pTemplate="rowexpansion">
+                            <table class="subtable">
+                                <tr>
+                                    <td>Idioma</td>
+                                    <td>{{ client.language }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Profesión</td>
+                                    <td>{{ client.title }}</td>
+                                </tr>
+                            </table>
+                        </template>
+                    </p-dataTable>
+
+                    <h2>Tabla de reporte</h2>
+                    <p-dataTable [value]="clients" [rows]="10" [rowsPerPageOptions]="[5,10,20]" 
+                            styleClass="column-divider" [paginator]="true"
+                                 exportFilename="cars"
+                                 [responsive]="true"
+                                 [totalRecords]="totalRecords" sortMode="multiple"
+                                 [globalFilter]="gb" [pageLinks]="10"
+                                 expandableRows="false" #dt>
+                        <p-column styleClass="datatable-td-counter">
+                            <template let-i="rowIndex" pTemplate="body">
+                                {{ i + 1 }}
+                            </template>
+                        </p-column>
+                        <p-column field="id" header="Reporte" styleClass="small-left" [sortable]="true">
+                            <template let-client="rowData" pTemplate="body">
+                                <i class="fa fa-th"></i>&nbsp;&nbsp;<a href="#">{{ client.id }}</a>
+                            </template>
+                        </p-column>
+                        <p-column field="name" header="Gráficos" [sortable]="true">
+                            <template let-client="rowData" pTemplate="body">
+                                <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;<a href="#">{{ client.name }}</a>
+                            </template>
+                        </p-column>
+                        <p-column field="email" header="Formas" [sortable]="true">
+                            <template let-client="rowData" pTemplate="body">
+                                <i class="fa fa-list-ul"></i>&nbsp;&nbsp;<a href="#">{{ client.email }}</a>
+                            </template>
+                        </p-column>
+                        <p-column field="gender" header="Género"></p-column>
+                        <p-column header="Acciones" styleClass="small-right">
+                            <template let-client="rowData" pTemplate="body">
+                                <div style="text-align: center">
+                                    <a href="#"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </template>
+                        </p-column>
+                    </p-dataTable>
+
+                    <h2>Tabla con inserción</h2>
+                    <p-dataTable [value]="billItems" [rows]="10" [rowsPerPageOptions]="[5,10,20]"
+                                 styleClass="column-divider" [paginator]="false"
+                                 exportFilename="cars"
+                                 [responsive]="true"
+                                 [totalRecords]="billItems.length" sortMode="multiple"
+                                 [globalFilter]="gb" [pageLinks]="10"
+                                 expandableRows="false" #dt>
+                        <p-column styleClass="datatable-td-counter">
+                            <template let-i="rowIndex" pTemplate="body">
+                                {{ i + 1 }}
+                            </template>
+                        </p-column>
+
+                        <p-column field="reference" header="Referencia" footer="Referencia" styleClass="small-left" [sortable]="true">
+                            <template pTemplate="footer">
+                                <input type="text" [(ngModel)]="reference" name="id" id="reference" pInputText style="width: 100%;"
+                                       (click)="appService.handleClickedInput($event, ['reference', 'description', 'price'], 'selection2', 0)"/>
+                            </template>
+                        </p-column>
+
+                        <p-column field="description" header="Descripción" footer="Descripción" [sortable]="true">
+                            <template pTemplate="footer">
+                                <p>{{ description }}</p>
+                            </template>
+                        </p-column>
+
+                        <p-column field="price" header="Precio Unitario" footer="Precio Unitario" [sortable]="true">
+                            <template pTemplate="footer">
+                                <p>{{ price }}</p>
+                            </template>
+                        </p-column>
+
+
+                        <p-column header="Acciones" footer="Acciones" styleClass="small-right">
+                            <template let-client="rowData" pTemplate="body">
+                                <div style="text-align: center">
+                                    <a href="#"><i class="fa fa-trash"></i></a>
+                                </div>
+                            </template>
+                            <template pTemplate="footer">
+                                <div style="text-align: center">
+                                    <i (click)="insert()" class="fa fa-check"></i>
+                                </div>
+                            </template>
+                        </p-column>
+                    </p-dataTable>
+
+                    <h2>Tabs</h2>
+                    <p-tabView>
+                        <p-tabPanel header="Tab 1">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p-checkbox name="group3" value="Los Angeles" label="Los Angeles"
+                                                [(ngModel)]="selectedCities"></p-checkbox>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-checkbox name="group3" value="San Francisco" label="San Francisco"
+                                                [(ngModel)]="selectedCities"></p-checkbox>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-checkbox name="group3" value="Los Angeles" label="Los Angeles"
+                                                [(ngModel)]="selectedCities"></p-checkbox>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-checkbox name="group3" value="Bogotá" label="Bogotá"
+                                                [(ngModel)]="selectedCities"></p-checkbox>
+                                </div>
+                            </div>
+                        </p-tabPanel>
+                        <p-tabPanel header="Tab 2">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <p-radioButton name="group4" value="Option 1" label="Opción 1"
+                                                   [(ngModel)]="val1"></p-radioButton>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-radioButton name="group4" value="Option 1" label="Opción 2"
+                                                   [(ngModel)]="val1"></p-radioButton>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-radioButton name="group4" value="Option 1" label="Opción 3"
+                                                   [(ngModel)]="val1"></p-radioButton>
+                                </div>
+                                <div class="col-xs-3">
+                                    <p-radioButton name="group4" value="Option 1" label="Opción 3"
+                                                   [(ngModel)]="val1"></p-radioButton>
+                                </div>
+                            </div>
+                        </p-tabPanel>
+                        <p-tabPanel header="Tab 3">
+                            <div class="row">
+                                <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;" required/>
+                                <label>Código</label>
+                            </span>
+                                </div>
+                                <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" pInputText style="width: 100%;" required/>
+                                <label>Nombre</label>
+                            </span>
+                                </div>
+                                <div class="col-xs-3">
+                            <span class="md-inputfield">
+                                <input type="text" icon="fa-plus" pInputText style="width: 100%;"/>
+                                <label>Email</label>
+                            </span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="md-inputfield">
+                                        <p-calendar [(ngModel)]="date6" [showTime]="true" name="date"
+                                                    dateFormat="yy/mm/dd "></p-calendar>
+                                        <label>Fecha</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </p-tabPanel>
+                    </p-tabView>
+
+                    <h2>Overlays</h2>
+                    <div>
+                        <p-dialog header="Godfather I" [(visible)]="display" modal="modal" width="425"
+                                  responsive="true">
+                            <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his
+                                daughter's wedding.
+                                His beloved son Michael has just come home from the war, but does not intend to become
+                                part of his father's business.
+                                Through Michael's life the nature of the family business becomes clear. The business of
+                                the family is just like the head of the family,
+                                kind and benevolent to those who give respect,
+                                but given to ruthless violence whenever anything stands against the good of the
+                                family.</p>
+                        </p-dialog>
+
+                        <p-confirmDialog header="Confirmation" icon="fa fa-question-circle"
+                                         width="425"></p-confirmDialog>
+
+
+                        <button type="text" (click)="showDialog()" pButton icon="fa-external-link-square"
+                                label="Mostrar diálogo"></button>
+
+                        <button type="text" (click)="confirm()" pButton icon="fa-check" label="Mostrar diálogo de confirmación"></button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <app-footer></app-footer>
+    </div>
+
+</div>

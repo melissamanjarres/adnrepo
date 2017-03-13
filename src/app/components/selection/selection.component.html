@@ -1,0 +1,48 @@
+<app-topbar></app-topbar>
+
+<div class="app-content">
+  <sidebar></sidebar>
+
+  <div class="content">
+
+    <breadcrumb></breadcrumb>
+
+    <div class="content-container">
+
+      <!--CONTENT HERE-->
+      <h1>SELECCIONE UN ELEMENTO</h1>
+      <div class="content-box">
+        <p-dataTable [value]="clients" [rows]="10" [rowsPerPageOptions]="[5,10,20]"
+                     styleClass="column-divider" [paginator]="true"
+                     exportFilename="cars"
+                     [responsive]="true"
+                     selectionMode="single"
+                     (onRowSelect)="onRowSelect($event)"
+                     [totalRecords]="totalRecords" sortMode="multiple"
+                     [globalFilter]="gb" [pageLinks]="10"
+                     expandableRows="false" #dt>
+          <p-column styleClass="datatable-td-counter">
+            <template let-i="rowIndex" pTemplate="body">
+              {{ i + 1 }}
+            </template>
+          </p-column>
+          <p-column field="id" header="Reporte" styleClass="small-left" [sortable]="true"></p-column>
+          <p-column field="name" header="Gráficos" [sortable]="true"></p-column>
+          <p-column field="gender" header="Género"></p-column>
+
+          <p-column header="Acciones" styleClass="small-right" *ngIf="actions == 1">
+            <template let-client="rowData" pTemplate="body">
+              <div style="text-align: center">
+                <a href="#"><i class="fa fa-trash"></i></a>
+              </div>
+            </template>
+          </p-column>
+        </p-dataTable>
+
+      </div>
+
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

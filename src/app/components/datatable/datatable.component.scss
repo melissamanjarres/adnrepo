@@ -1,0 +1,130 @@
+@import "../../styles/libs/bourbon/bourbon";
+@import "../../styles/libs/neat/neat";
+@import "../../styles/sass/variables";
+@import "../../styles/sass/common";
+
+table.data {
+  width: 100%;
+  margin-top: $space-normal;
+
+  th, td {
+    padding: $space-small;
+    border-bottom: 1px solid lighten($color-gray, 42%);
+  }
+
+  th {
+    border-color: lighten($color-main, 35%);
+    border-width: 2px;
+  }
+
+  thead {
+    tr {
+      th {
+        color: $color-secondary;
+        font-weight: 700;
+        font-size: 0.8em;
+
+        a {
+          text-decoration: none;
+          color: $color-secondary;
+        }
+      }
+
+      th:last-child {
+        text-align: center;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      outline: none;
+
+      table {
+        tr {
+          td {
+            font-size: 0.8em;
+          }
+
+          td:first-child {
+            font-weight: bold;
+          }
+        }
+
+        tr:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    tr.table-row {
+      outline: none;
+      cursor: pointer;
+
+      td {
+        font-size: 0.8em;
+      }
+
+      td:first-child {
+        width: 40px;
+        color: lighten(gray, 20%);
+        font-size: 0.8em;
+        text-align: center;
+      }
+
+      td:last-child {
+        width: 100px;
+        text-align: center;
+
+        a {
+          font-size: 1.3em;
+          color: black;
+          display: inline-block;
+          margin-right: $space-tiny;
+        }
+      }
+    }
+
+    tr.table-row:hover {
+      td {
+        background-color: #E5EEF6;
+      }
+    }
+
+    tr.table-row:nth-child(odd) {
+      background-color: lighten($color-menu, 8%);
+    }
+  }
+}
+
+table.data.insert {
+  tfoot {
+    tr:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: default;
+      -webkit-transition: 0.2s ease all;
+      -moz-transition: 0.2s ease all;
+      -ms-transition: 0.2s ease all;
+      -o-transition: 0.2s ease all;
+      transition: 0.2s ease all;
+    }
+
+    tr.ng-enter {
+      opacity: 0;
+      background-color: yellowgreen !important;
+      transform: translateX(100px);
+    }
+
+    tr.ng-enter.ng-enter-active {
+    }
+  }
+}

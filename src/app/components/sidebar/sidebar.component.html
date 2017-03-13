@@ -1,0 +1,96 @@
+<notification></notification>
+<div class="app-sidebar">
+    <!--Acciones recientes-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'recientes'}"
+         (click)="menuMouseEnter('recientes', $event)">
+
+        <div class="item-icon recents"></div>
+        <div class="item-text" md-tooltip="Acciones Recientes" tooltip-position="right">
+            Acciones Recientes
+        </div>
+
+        <megamenu name="recientes" title="Acciones Recientes" *ngIf="appService.menuActive == 'recientes'"></megamenu>
+    </div>
+
+    <!--Gestion comercial-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'comercial'}"
+         (click)="menuMouseEnter('comercial', $event)">
+        <div class="item-icon store" md-tooltip="Gestión Comercial" tooltip-position="right"></div>
+        <div class="item-text">
+            Gestión comercial
+        </div>
+
+        <megamenu name="comercial" title="Gestión Comercial" (notificate)="isNotifying($event)" *ngIf="appService.menuActive == 'comercial'"></megamenu>
+    </div>
+
+    <!--Compras-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'compras'}"
+         (click)="menuMouseEnter('compras', $event)">
+        <div class="item-icon cart" md-tooltip="Compras" tooltip-position="right"></div>
+        <div class="item-text">
+            Compras
+        </div>
+
+        <megamenu name="compras" title="Compras" *ngIf="appService.menuActive == 'compras'"></megamenu>
+    </div>
+
+    <!--Tesoreria-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'tesoreria'}"
+         (click)="menuMouseEnter('tesoreria', $event)">
+        <div class="item-icon money" md-tooltip="Tesorería" tooltip-position="right"></div>
+        <div class="item-text">
+            Tesorería
+        </div>
+
+        <megamenu name="tesoreria" title="Tesorería"
+                  *ngIf="appService.menuActive == 'tesoreria'"></megamenu>
+    </div>
+
+    <!--Inventarios-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'inventario'}"
+         (click)="menuMouseEnter('inventario', $event)">
+        <div class="item-icon box" md-tooltip="Inventarios" tooltip-position="right"></div>
+        <div class="item-text">
+            Inventarios
+        </div>
+
+        <megamenu name="inventario" title="Inventarios"
+                  *ngIf="appService.menuActive == 'inventario'"></megamenu>
+    </div>
+
+    <!--Financiero-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'financiero'}"
+         (click)="menuMouseEnter('financiero', $event)">
+        <div class="item-icon stats" md-tooltip="Financiero" tooltip-position="right"></div>
+        <div class="item-text">
+            Financiero
+        </div>
+
+        <megamenu name="financiero" title="Financiero"
+                  *ngIf="appService.menuActive == 'financiero'"></megamenu>
+    </div>
+
+    <!--Nomina-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'nomina'}"
+         (click)="menuMouseEnter('nomina', $event)">
+        <div class="item-icon people" md-tooltip="Nómina" tooltip-position="right">
+        </div>
+        <div class="item-text">
+            Nómina
+        </div>
+
+        <megamenu name="nomina" title="Nómina" *ngIf="appService.menuActive == 'nomina'"></megamenu>
+    </div>
+
+    <!--Parametros-->
+    <div class="sidebar-item" [ngClass]="{'active': appService.menuActive == 'parametros'}"
+         (click)="menuMouseEnter('parametros', $event)">
+        <div class="item-icon settings" md-tooltip="Parámetros" tooltip-position="right"></div>
+        <div class="item-text">
+            Parámetros
+        </div>
+
+        <megamenu name="parametros" title="Parametros"
+                  *ngIf="appService.menuActive == 'parametros'"></megamenu>
+    </div>
+</div>
